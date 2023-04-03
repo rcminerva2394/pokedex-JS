@@ -1,0 +1,59 @@
+1. Write the user stories and features of your pokedex app
+2. Research how you will create the architecture and what tools:
+ - Vanilla js
+ - ES6 modules
+ - Parcel
+3. Create a flow chart step by step
+4. Create the architectural flow chart including code step by step before stepping into coding
+5. Go! and start coding
+6. Debug
+7. Write unit test
+8. Test and deploy on github pages
+
+User stories
+1. User can see the pokemons
+    - Their types, 
+    - Name
+    - Description
+    - Picture
+    - Number
+    - and more information
+2. More information includes the following (modal):
+    - Picture
+    - Number
+    - category
+    - weight
+    - height
+    - stats (hp, attack, defense, spt. atack, sp.def, speed)
+3. Search
+    - by types,
+    - search by name
+
+
+
+Step by step
+1. Create three fetches 
+    - For fetch the pokemon by name or id 
+    - Fetch pokemon by type
+    - Fetch pokemon by list
+2. Types of pokemon
+   - bug
+   - dark
+   - dragon
+   - electric
+   - fairy
+   - fighting
+   - fire
+   - flying
+   - ghost
+   - grass
+   - ground
+   - ice 
+   - normal
+   - posion
+   - psychic
+   - rock
+   - steel
+   - water
+
+
