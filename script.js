@@ -1,17 +1,15 @@
 import fetchPokemonList from './api/fetchPokemonList.js';
 
-// const list = fetchPokemonList(1);
-// console.log(list);
-// console.log(list);
-// console.log(list);
+const list = fetchPokemonList(1);
+list.then();
+console.log(list);
+console.log(list);
 // To practice AJAX
 
-const types = document.querySelectorAll('.type');
 const btnLeft = document.querySelector('.prev-type');
 const btnRight = document.querySelector('.next-type');
 const pokemonTypes = document.querySelector('.pokemon-types-btns');
 
-const max = 160;
 let curr = 0;
 
 const goNextType = (current) => {
@@ -19,9 +17,9 @@ const goNextType = (current) => {
 };
 
 const nextType = () => {
-  if (curr !== max) {
-    curr -= 20;
-  } else if (curr === max) {
+  if (curr !== -144) {
+    curr += -18;
+  } else if (curr === -144) {
     curr = 0;
   }
 
@@ -29,11 +27,10 @@ const nextType = () => {
 };
 
 const prevType = () => {
-  if (curr !== max) {
-    curr += 20;
-  } else if (curr === max) {
-    curr = 0;
-    btnLeft.disabled = true;
+  if (curr === 0) {
+    curr = -144;
+  } else {
+    curr += 18;
   }
 
   goNextType(curr);
