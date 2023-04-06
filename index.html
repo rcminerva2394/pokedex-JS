@@ -8,8 +8,135 @@
       content="A Pokedex app created using vanilla JS particulary ES6 modules and Parcel "
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <script type="module" src="script.js"></script>
     <title>Pokedex-JS</title>
   </head>
-  <body></body>
+  <body>
+    <section class="hero-section">
+      <header>
+        <img
+          src="assets/logo-pokemon.svg"
+          alt="The Pokemon logo"
+          class="red pokemon-logo"
+        />
+        <img
+          src="assets/logo-github.svg"
+          alt="the Github logo"
+          class="red github-logo"
+        />
+      </header>
+      <div class="hero-description">
+        <div class="hero-description-details">
+          <p class="hero-number">#25</p>
+          <p class="hero-type">
+            <img
+              src="assets/pokemonTypes/electric.svg"
+              alt=""
+              class="red hero-type-icon"
+            />
+            Electric
+          </p>
+          <p class="hero-name">Pikachu</p>
+          <p class="hero-text">
+            Pikachu's name is derived from two Japanese words? "Pika" means
+            electric sparkling or a flash of light, while "chu" is the sound a
+            mouse makes. So Pikachu's name essentially means "sparkling mouse"
+            in Japanese!
+          </p>
+          <button class="btn hero-more-info">More details...</button>
+        </div>
+        <div class="divider">
+          <div class="top-line">&nbsp;</div>
+          <img
+            src="assets/pokemonTypes/electric.svg"
+            alt=""
+            class="red divider-icon"
+          />
+          <div class="bottom-line">&nbsp;</div>
+        </div>
+
+        <img src="assets/hero-img.png" alt="" class="hero-img" />
+      </div>
+    </section>
+    <main>
+      <section class="filters">
+        <div class="search-by-type">
+          <h1>Search by type</h1>
+          <div class="pokemon-types-wrapper">
+            <p class="prev-type">&lt;</p>
+            <div class="pokemon-types-btns-wrapper">
+              <div class="pokemon-types-btns">
+                <p class="type bug">
+                  <img src="assets/pokemonTypes/bug.svg" /> Bug
+                </p>
+                <p class="type dark">
+                  <img src="assets/pokemonTypes/dark.svg" /> Dark
+                </p>
+                <p class="type dragon">
+                  <img src="assets/pokemonTypes/dragon.svg" />Dragon
+                </p>
+                <p class="type electric">
+                  <img src="assets/pokemonTypes/electric.svg" />Electric
+                </p>
+                <p class="type fairy">
+                  <img src="assets/pokemonTypes/fairy.svg" />Fairy
+                </p>
+                <p class="type fighting">
+                  <img src="assets/pokemonTypes/fighting.svg" />Fighting
+                </p>
+                <p class="type fire">
+                  <img src="assets/pokemonTypes/fire.svg" />Fire
+                </p>
+                <p class="type fly">
+                  <img src="assets/pokemonTypes/flying.svg" />Flying
+                </p>
+                <p class="type ghost">
+                  <img src="assets/pokemonTypes/ghost.svg" />Ghost
+                </p>
+                <p class="type grass">
+                  <img src="assets/pokemonTypes/grass.svg" />Grass
+                </p>
+                <p class="type ground">
+                  <img src="assets/pokemonTypes/ground.svg" />Ground
+                </p>
+                <p class="type ice">
+                  <img src="assets/pokemonTypes/ice.svg" />Ice
+                </p>
+
+                <p class="type normal">
+                  <img src="assets/pokemonTypes/normal.svg" />Normal
+                </p>
+
+                <p class="type poison">
+                  <img src="assets/pokemonTypes/poison.svg" />Poison
+                </p>
+                <p class="type psychic">
+                  <img src="assets/pokemonTypes/psychic.svg" />Psychic
+                </p>
+                <p class="type rock">
+                  <img src="assets/pokemonTypes/rock.svg" />Rock
+                </p>
+                <p class="type steel">
+                  <img src="assets/pokemonTypes/steel.svg" />Steel
+                </p>
+                <p class="type water">
+                  <img src="assets/pokemonTypes/water.svg" />Water
+                </p>
+              </div>
+            </div>
+
+            <p class="next-type">&gt;</p>
+          </div>
+        </div>
+        <input class="search-by-name-number" />
+      </section>
+    </main>
+  </body>
 </html>

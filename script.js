@@ -1,4 +1,46 @@
+import fetchPokemonList from './api/fetchPokemonList.js';
+
+// const list = fetchPokemonList(1);
+// console.log(list);
+// console.log(list);
+// console.log(list);
 // To practice AJAX
+
+const types = document.querySelectorAll('.type');
+const btnLeft = document.querySelector('.prev-type');
+const btnRight = document.querySelector('.next-type');
+const pokemonTypes = document.querySelector('.pokemon-types-btns');
+
+const max = 160;
+let curr = 0;
+
+const goNextType = (current) => {
+  pokemonTypes.style.transform = `translateX(${current}rem)`;
+};
+
+const nextType = () => {
+  if (curr !== max) {
+    curr -= 20;
+  } else if (curr === max) {
+    curr = 0;
+  }
+
+  goNextType(curr);
+};
+
+const prevType = () => {
+  if (curr !== max) {
+    curr += 20;
+  } else if (curr === max) {
+    curr = 0;
+    btnLeft.disabled = true;
+  }
+
+  goNextType(curr);
+};
+
+btnLeft.addEventListener('click', prevType);
+btnRight.addEventListener('click', nextType);
 
 /*
 const pokemonAPI = 'https://pokeapi.co/api/v2/pokemon/ivysaur';
