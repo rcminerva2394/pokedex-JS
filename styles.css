@@ -75,19 +75,18 @@ header {
   background-image: linear-gradient(to top, #fae3e0c9, #eea298, #ff8979);
 }
 
-.hero-type {
-  background-color: #c8c94a;
+.pokemon-type {
   color: #fff;
   padding: 1rem;
   display: inline-block;
   border-radius: 1rem;
 }
 
-.hero-type > * {
+.pokemon-type > * {
   vertical-align: middle;
 }
 
-.hero-type-icon {
+.pokemon-type-icon {
   width: 2.5rem;
 }
 
@@ -106,17 +105,21 @@ header {
   text-transform: uppercase;
 }
 
-.hero-more-info {
-  margin-top: 3rem;
-  background-color: #f62d14;
+.btn {
   color: #fff;
   outline: none;
   border: none;
-  padding: 1.5rem 3rem;
   display: flex;
+  justify-content: center;
   font-family: inherit;
   font-size: inherit;
+}
+
+.btn-hero {
+  background-color: #f62d14;
+  margin-top: 3rem;
   border-radius: 1rem;
+  padding: 1.5rem 3rem;
 }
 
 main {
@@ -180,11 +183,11 @@ main {
 }
 
 .dark {
-  background-color: #121212;
+  background-color: #333;
 }
 
 .dragon {
-  background-color: #b99945;
+  background-color: #425dec;
 }
 
 .electric {
@@ -204,7 +207,7 @@ main {
 }
 
 .fly {
-  background-color: #2b98fd;
+  background-color: #5ba1e1;
 }
 
 .ghost {
@@ -214,6 +217,7 @@ main {
 .grass {
   background-color: #87dd31;
 }
+
 .ground {
   background-color: #927575;
 }
@@ -223,7 +227,7 @@ main {
 }
 
 .normal {
-  background-color: #b5b4b4;
+  background-color: #a9a9a9;
 }
 
 .poison {
@@ -235,7 +239,7 @@ main {
 }
 
 .rock {
-  background-color: #424242;
+  background-color: #5c5c5c;
 }
 
 .steel {
@@ -271,4 +275,290 @@ main {
   border-color: #4f38e6;
   outline: none;
   box-shadow: 1px 1px 2px #4f38e6;
+}
+
+/*** POKEMON CARDS ***/
+.pokemon-cards-wrapper {
+  margin-top: 25rem;
+}
+
+.pokemon-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.card {
+  list-style: none;
+  max-width: 40rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 3rem;
+  margin-bottom: 20rem;
+}
+
+.card-info {
+  padding: 3rem 6rem 0rem 6rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card-info > * {
+  margin-top: 1rem;
+}
+
+.pokemon-card-img {
+  position: absolute;
+  width: 25rem;
+  transform: translateY(-20rem);
+}
+
+.btn-card {
+  padding: 1.5rem 3rem;
+  width: 100%;
+  margin-top: 2rem;
+  border-radius: 0 0 3rem 3rem;
+}
+
+.weight-height {
+  display: flex;
+  gap: 5rem;
+}
+
+.card-number {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.card-name {
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+.weight,
+.height {
+  font-weight: 500;
+}
+
+/*** CARD-TYPE STYLES ***/
+
+.card-electric {
+  border: 1px solid rgba(201, 201, 74, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(201, 201, 74, 0.5),
+    rgba(201, 201, 74, 0.4),
+    rgba(201, 201, 74, 0.298),
+    rgba(201, 201, 74, 0.204),
+    rgba(201, 201, 74, 0.1),
+    rgba(201, 201, 74, 0.041)
+  );
+}
+
+.card-bug {
+  border: 1px solid rgba(44, 198, 141, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(44, 198, 141, 0.5),
+    rgba(44, 198, 141, 0.3),
+    rgba(44, 198, 141, 0.2),
+    rgba(44, 198, 141, 0.1),
+    rgba(44, 198, 141, 0.004)
+  );
+}
+
+.card-dark {
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(51, 51, 51, 0.9),
+    rgba(51, 51, 51, 0.6),
+    rgba(51, 51, 51, 0.5),
+    rgba(51, 51, 51, 0.3),
+    rgba(51, 51, 51, 0.004)
+  );
+}
+
+.card-dragon {
+  border: 1px solid rgba(66, 94, 236, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(66, 94, 236, 0.5),
+    rgba(66, 94, 236, 0.3),
+    rgba(66, 94, 236, 0.2),
+    rgba(66, 94, 236, 0.1),
+    rgba(66, 94, 236, 0.004)
+  );
+}
+
+.card-fairy {
+  border: 1px solid rgba(224, 149, 176, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(224, 149, 176, 0.4),
+    rgba(224, 149, 176, 0.3),
+    rgba(224, 149, 176, 0.2),
+    rgba(224, 149, 176, 0.1),
+    rgba(224, 149, 176, 0.004)
+  );
+}
+
+.card-fighting {
+  border: 1px solid rgba(246, 45, 19, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(246, 46, 20, 0.4),
+    rgba(246, 46, 20, 0.3),
+    rgba(246, 46, 20, 0.2),
+    rgba(246, 46, 20, 0.1),
+    rgba(246, 46, 20, 0.004)
+  );
+}
+
+.card-fire {
+  border: 1px solid rgba(255, 126, 34, 0.2);
+
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 126, 34, 0.4),
+    rgba(255, 126, 34, 0.3),
+    rgba(255, 126, 34, 0.2),
+    rgba(255, 126, 34, 0.1),
+    rgba(255, 126, 34, 0.004)
+  );
+}
+
+.card-fly {
+  border: 1px solid rgba(91, 160, 225, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(91, 160, 225, 0.4),
+    rgba(91, 160, 225, 0.3),
+    rgba(91, 160, 225, 0.2),
+    rgba(91, 160, 225, 0.1),
+    rgba(91, 160, 225, 0.004)
+  );
+}
+
+.card-ghost {
+  border: 1px solid rgba(172, 205, 167, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(172, 205, 167, 0.4),
+    rgba(172, 205, 167, 0.3),
+    rgba(172, 205, 167, 0.2),
+    rgba(172, 205, 167, 0.1),
+    rgba(172, 205, 167, 0.004)
+  );
+}
+
+.card-grass {
+  border: 1px solid rgba(135, 221, 49, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(135, 221, 49, 0.4),
+    rgba(135, 221, 49, 0.3),
+    rgba(135, 221, 49, 0.2),
+    rgba(135, 221, 49, 0.1),
+    rgba(135, 221, 49, 0.004)
+  );
+}
+
+.card-ground {
+  border: 1px solid rgba(146, 117, 117, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(146, 117, 117, 0.7),
+    rgba(146, 117, 117, 0.4),
+    rgba(146, 117, 117, 0.3),
+    rgba(146, 117, 117, 0.1),
+    rgba(146, 117, 117, 0.004)
+  );
+}
+
+.card-ice {
+  border: 1px solid rgba(159, 150, 255, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(159, 150, 255, 0.4),
+    rgba(159, 150, 255, 0.3),
+    rgba(159, 150, 255, 0.2),
+    rgba(159, 150, 255, 0.1),
+    rgba(159, 150, 255, 0.004)
+  );
+}
+
+.card-normal {
+  border: 1px solid rgba(169, 169, 169, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(169, 169, 169, 0.4),
+    rgba(169, 169, 169, 0.3),
+    rgba(169, 169, 169, 0.2),
+    rgba(169, 169, 169, 0.1),
+    rgba(169, 169, 169, 0.004)
+  );
+}
+
+.card-poison {
+  border: 1px solid rgba(204, 68, 253, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(204, 68, 253, 0.4),
+    rgba(204, 68, 253, 0.3),
+    rgba(204, 68, 253, 0.2),
+    rgba(204, 68, 253, 0.1),
+    rgba(204, 68, 253, 0.004)
+  );
+}
+
+.card-psychic {
+  border: 1px solid rgba(0, 191, 216, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(0, 191, 216, 0.4),
+    rgba(0, 191, 216, 0.3),
+    rgba(0, 191, 216, 0.2),
+    rgba(0, 191, 216, 0.1),
+    rgba(0, 191, 216, 0.004)
+  );
+}
+
+.card-rock {
+  border: 1px solid rgba(92, 92, 92, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(92, 92, 92, 0.4),
+    rgba(92, 92, 92, 0.3),
+    rgba(92, 92, 92, 0.2),
+    rgba(92, 92, 92, 0.1),
+    rgba(92, 92, 92, 0.004)
+  );
+}
+
+.card-steel {
+  border: 1px solid rgba(174, 198, 200, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(174, 198, 200, 0.4),
+    rgba(174, 198, 200, 0.3),
+    rgba(174, 198, 200, 0.2),
+    rgba(174, 198, 200, 0.1),
+    rgba(174, 198, 200, 0.004)
+  );
+}
+
+.card-water {
+  border: 1px solid rgba(0, 85, 255, 0.2);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(0, 85, 255, 0.4),
+    rgba(0, 85, 255, 0.3),
+    rgba(0, 85, 255, 0.2),
+    rgba(0, 85, 255, 0.1),
+    rgba(0, 85, 255, 0.004)
+  );
 }
