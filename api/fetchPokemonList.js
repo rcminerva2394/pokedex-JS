@@ -7,12 +7,11 @@ const fetchPokemonList = async (pageNumber) => {
   try {
     const response = await fetch(pokemonListURL);
     const data = await response.json();
-    const promises = data.results.map(async (pokemon) => {
-      await fetchPokemon(pokemon.name);
-    });
-
+    console.log(data);
+    const promises = data.results.map(async (pokemon) =>
+      fetchPokemon(pokemon.name)
+    );
     const pokemonList = Promise.all(promises);
-    console.log(pokemonList);
     return pokemonList;
   } catch (err) {
     console.log(err);

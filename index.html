@@ -141,6 +141,10 @@
         />
       </section>
       <section class="pokemon-cards-wrapper">
+        <div class="loader-wrapper">
+          <img src="/assets/loader.svg" alt="" class="loader" />
+        </div>
+
         <ul class="pokemon-cards">
           <li class="card card-electric">
             <img
@@ -151,14 +155,25 @@
             <div class="card-info">
               <p class="card-number">#25</p>
               <p class="card-name">Pikachu</p>
-              <p class="pokemon-type electric">
-                <img
-                  src="assets/pokemonTypes/electric.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Electric
-              </p>
+              <div class="pokemon-types">
+                <p class="pokemon-type electric">
+                  <img
+                    src="assets/pokemonTypes/electric.svg"
+                    alt=""
+                    class="pokemon-type-icon"
+                  />
+                  Electric
+                </p>
+                <p class="pokemon-type fighting">
+                  <img
+                    src="assets/pokemonTypes/fighting.svg"
+                    alt=""
+                    class="pokemon-type-icon"
+                  />
+                  Fighting
+                </p>
+              </div>
+
               <div class="weight-height">
                 <div class="weight-wrapper">
                   <p class="weight">6kg</p>
@@ -173,192 +188,6 @@
             <button class="btn btn-card electric">More details...</button>
           </li>
 
-          <li class="card card-bug">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type bug">
-                <img
-                  src="assets/pokemonTypes/bug.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Bug
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card bug">More details...</button>
-          </li>
-
-          <li class="card card-dark">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type dark">
-                <img
-                  src="assets/pokemonTypes/dark.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Dark
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card dark">More details...</button>
-          </li>
-
-          <li class="card card-dragon">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type dragon">
-                <img
-                  src="assets/pokemonTypes/dark.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Dragon
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card dragon">More details...</button>
-          </li>
-
-          <li class="card card-fairy">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type fairy">
-                <img
-                  src="assets/pokemonTypes/fairy.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Fairy
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card fairy">More details...</button>
-          </li>
-
-          <li class="card card-fighting">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type fighting">
-                <img
-                  src="assets/pokemonTypes/fighting.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Fighting
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card fighting">More details...</button>
-          </li>
-
-          <li class="card card-fire">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type fire">
-                <img
-                  src="assets/pokemonTypes/fire.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Fire
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card fire">More details...</button>
-          </li>
-
           <li class="card card-fly">
             <img
               src="/assets/hero-img.png"
@@ -368,14 +197,17 @@
             <div class="card-info">
               <p class="card-number">#25</p>
               <p class="card-name">Pikachu</p>
-              <p class="pokemon-type fly">
-                <img
-                  src="assets/pokemonTypes/flying.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Flying
-              </p>
+              <div class="pokemon-types">
+                <p class="pokemon-type fly">
+                  <img
+                    src="assets/pokemonTypes/bug.svg"
+                    alt=""
+                    class="pokemon-type-icon"
+                  />
+                  Fly
+                </p>
+              </div>
+
               <div class="weight-height">
                 <div class="weight-wrapper">
                   <p class="weight">6kg</p>
@@ -389,317 +221,12 @@
             </div>
             <button class="btn btn-card fly">More details...</button>
           </li>
-
-          <li class="card card-ghost">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type ghost">
-                <img
-                  src="assets/pokemonTypes/ghost.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Ghost
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card ghost">More details...</button>
-          </li>
-
-          <li class="card card-grass">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type grass">
-                <img
-                  src="assets/pokemonTypes/grass.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Grass
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card grass">More details...</button>
-          </li>
-
-          <li class="card card-ground">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type ground">
-                <img
-                  src="assets/pokemonTypes/ground.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Ground
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card ground">More details...</button>
-          </li>
-
-          <li class="card card-ice">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type ice">
-                <img
-                  src="assets/pokemonTypes/ice.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Ice
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card ice">More details...</button>
-          </li>
-
-          <li class="card card-normal">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type normal">
-                <img
-                  src="assets/pokemonTypes/normal.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Normal
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card normal">More details...</button>
-          </li>
-
-          <li class="card card-poison">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type poison">
-                <img
-                  src="assets/pokemonTypes/poison.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Poison
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card poison">More details...</button>
-          </li>
-
-          <li class="card card-psychic">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type psychic">
-                <img
-                  src="assets/pokemonTypes/psychic.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Psychic
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card psychic">More details...</button>
-          </li>
-
-          <li class="card card-rock">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type rock">
-                <img
-                  src="assets/pokemonTypes/psychic.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Rock
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card rock">More details...</button>
-          </li>
-
-          <li class="card card-steel">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type steel">
-                <img
-                  src="assets/pokemonTypes/steel.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Steel
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card steel">More details...</button>
-          </li>
-
-          <li class="card card-water">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <p class="pokemon-type water">
-                <img
-                  src="assets/pokemonTypes/water.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                Water
-              </p>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card water">More details...</button>
-          </li>
         </ul>
+        <!-- <div class="pokemon-pagination">
+          <p class="prev-page">&lt;</p>
+          <div class="pokemon-pages"></div>
+          <p class="next-page">&gt;</p>
+        </div> -->
       </section>
     </main>
   </body>
