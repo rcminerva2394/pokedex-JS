@@ -583,6 +583,11 @@ main {
   font-weight: 500;
 }
 
+.two-pages-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
 .pokemon-pagination p {
   font-size: 2.5rem;
   cursor: pointer;
@@ -595,7 +600,7 @@ main {
   margin: 0 4rem;
 }
 
-.pokemon-pages > .page {
+.page {
   font-weight: 500;
   font-size: 1.75rem;
   background-color: transparent;
@@ -603,6 +608,7 @@ main {
   padding: 0.5rem 1rem;
   border: 3px solid #fff;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 #hidden {

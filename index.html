@@ -148,10 +148,16 @@
         <div class="pokemon-pagination">
           <p class="prev-page">&lt;</p>
           <div class="pokemon-pages">
-            <button class="page page-1">1</button>
-            <button class="page page-2">2</button>
-            <button class="page page-3">3</button>
+            <button class="page page-1 active-pg">1</button>
+            <div class="two-pages-wrapper page-1-2">
+              <button class="page page-2">2</button>
+              <button class="page page-3">3</button>
+            </div>
             <p class="ellipsis">...</p>
+            <div class="two-pages-wrapper page-98-99" id="hidden">
+              <button class="page page-98">98</button>
+              <button class="page page-99">99</button>
+            </div>
             <button class="page page-100">100</button>
           </div>
           <p class="next-page">&gt;</p>

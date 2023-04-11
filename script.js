@@ -68,7 +68,7 @@ const displayPokeCards = () => {
   });
 };
 
-// Function to fetch the pokemons
+/* FUNCTION TO FETCH POKEMONS */
 const fetchPokemons = async () => {
   const list = fetchPokemonList(currentPage);
   try {
@@ -83,10 +83,10 @@ const fetchPokemons = async () => {
 };
 
 window.onload = () => {
-  fetchPokemons(1);
+  fetchPokemons();
 };
 
-// POKEMON FILTER BY TYPE
+/* POKEMON FILTER BY TYPE */
 const btnLeft = document.querySelector('.prev-type');
 const btnRight = document.querySelector('.next-type');
 const pokemonTypesBtns = document.querySelector('.pokemon-types-btns');
@@ -120,14 +120,39 @@ const prevType = () => {
 btnLeft.addEventListener('click', prevType);
 btnRight.addEventListener('click', nextType);
 
-// PAGINATION
+/* PAGINATION */
 const prevPageEl = document.querySelector('.prev-page');
 const nextPageEl = document.querySelector('.next-page');
-// let pokemonPagesEl = document.querySelector('.pokemon-pages');
+const page1 = document.getElementsByClassName('page page-1 active-pg')[0];
+const page2 = document.getElementsByClassName('page page-2')[0];
+const page3 = document.getElementsByClassName('page page-3')[0];
+const page98 = document.getElementsByClassName('page page98')[0];
+const page99 = document.getElementsByClassName('page page99')[0];
+const page100 = document.getElementsByClassName('page page100')[0];
+
+const pages = {
+  1: page1,
+  2: page2,
+  3: page3,
+  98: page98,
+  99: page99,
+  100: page100,
+};
+
+const removePrevActive = () => {
+  document.getElementsByClassName('active-pg')[0].classList.remove('active-pg');
+};
 
 const goNextPage = () => {
   if (currentPage <= 100) {
     currentPage += 1;
+    removePrevActive();
+    if (
+      (currentPage > 1 && currentPage <= 3) ||
+      (currentPage >= 98 && currentPage <= 100)
+    ) {
+      pages[currentPage].classList.add('active-pg');
+    }
     fetchPokemons();
   }
 };
@@ -138,6 +163,18 @@ const goPrevPage = () => {
     fetchPokemons();
   }
 };
+
+const jumpToPage = (pageNumber, pageEl) => {
+  removePrevActive();
+  currentPage = pageNumber;
+  fetchPokemons();
+  pageEl.classList.add('active-pg');
+};
+
+// Page 1-3
+page1.addEventListener('click', () => jumpToPage(1, page1));
+page2.addEventListener('click', () => jumpToPage(2, page2));
+page3.addEventListener('click', () => jumpToPage(3, page3));
 
 // Next and Prev Pagination
 nextPageEl.addEventListener('click', goNextPage);
