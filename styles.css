@@ -14,6 +14,11 @@ body {
   line-height: 1.5;
 }
 
+input,
+button {
+  font-family: inherit;
+}
+
 .hero-section {
   background: linear-gradient(
     to right,
@@ -212,7 +217,7 @@ main {
   background-color: #ff7f22;
 }
 
-.fly {
+.flying {
   background-color: #5ba1e1;
 }
 
@@ -284,9 +289,6 @@ main {
 }
 
 /*** POKEMON CARDS ***/
-.pokemon-cards-wrapper {
-  margin-top: 25rem;
-}
 
 .pokemon-cards {
   display: grid;
@@ -303,12 +305,12 @@ main {
   align-items: center;
   text-align: center;
   border-radius: 3rem;
-  margin-bottom: 20rem;
+  margin-top: 25rem;
 }
 
 .card-info {
   padding: 3rem 6rem 0rem 6rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
   margin-bottom: 2rem;
 }
 
@@ -333,6 +335,7 @@ main {
 .weight-height {
   display: flex;
   justify-content: space-around;
+  margin-top: 2rem;
 }
 
 .card-number {
@@ -342,7 +345,7 @@ main {
 
 .card-name {
   font-weight: 500;
-  font-size: 4rem;
+  font-size: 3.25rem;
 }
 
 .weight,
@@ -437,7 +440,7 @@ main {
   );
 }
 
-.card-fly {
+.card-flying {
   border: 1px solid rgba(91, 160, 225, 0.2);
   background: radial-gradient(
     ellipse at top,
@@ -573,15 +576,33 @@ main {
 
 .pokemon-pagination {
   display: flex;
-}
-
-.pokemon-pagination > p {
-  font-size: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.25rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
+.pokemon-pagination p {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
 .pokemon-pages {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin: 0 4rem;
+}
+
+.pokemon-pages > .page {
+  font-weight: 500;
+  font-size: 1.75rem;
+  background-color: transparent;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: 3px solid #fff;
+  border-radius: 1rem;
 }
 
 #hidden {
@@ -596,4 +617,8 @@ main {
 
 .loader {
   width: 8rem;
+}
+
+.active-pg {
+  background-color: #0057ff;
 }

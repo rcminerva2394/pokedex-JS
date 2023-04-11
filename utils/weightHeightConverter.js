@@ -1,5 +1,8 @@
-export const weightConverter = (hectograms) => (hectograms * 100) / 1000;
+export const weightConverter = (hectograms) => hectograms / 10;
 
 export const heightConverter = (decimeter) => decimeter / 10;
 
-export { weightConverter as convertWeight, heightConverter as convertHeight };
+export {
+  weightConverter as convertWeightToKg,
+  heightConverter as convertHeightToM,
+};

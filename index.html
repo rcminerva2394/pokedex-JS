@@ -94,7 +94,7 @@
                 <p class="type fire" data-pokemon-type="fire">
                   <img src="assets/pokemonTypes/fire.svg" />Fire
                 </p>
-                <p class="type fly" data-pokemon-type="flying">
+                <p class="type flying" data-pokemon-type="flying">
                   <img src="assets/pokemonTypes/flying.svg" />Flying
                 </p>
                 <p class="type ghost" data-pokemon-type="ghost">
@@ -144,89 +144,18 @@
         <div class="loader-wrapper">
           <img src="/assets/loader.svg" alt="" class="loader" />
         </div>
-
-        <ul class="pokemon-cards">
-          <li class="card card-electric">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <div class="pokemon-types">
-                <p class="pokemon-type electric">
-                  <img
-                    src="assets/pokemonTypes/electric.svg"
-                    alt=""
-                    class="pokemon-type-icon"
-                  />
-                  Electric
-                </p>
-                <p class="pokemon-type fighting">
-                  <img
-                    src="assets/pokemonTypes/fighting.svg"
-                    alt=""
-                    class="pokemon-type-icon"
-                  />
-                  Fighting
-                </p>
-              </div>
-
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card electric">More details...</button>
-          </li>
-
-          <li class="card card-fly">
-            <img
-              src="/assets/hero-img.png"
-              alt="Pikachu"
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#25</p>
-              <p class="card-name">Pikachu</p>
-              <div class="pokemon-types">
-                <p class="pokemon-type fly">
-                  <img
-                    src="assets/pokemonTypes/bug.svg"
-                    alt=""
-                    class="pokemon-type-icon"
-                  />
-                  Fly
-                </p>
-              </div>
-
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">6kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">0.4m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card fly">More details...</button>
-          </li>
-        </ul>
-        <!-- <div class="pokemon-pagination">
+        <ul class="pokemon-cards"></ul>
+        <div class="pokemon-pagination">
           <p class="prev-page">&lt;</p>
-          <div class="pokemon-pages"></div>
+          <div class="pokemon-pages">
+            <button class="page page-1">1</button>
+            <button class="page page-2">2</button>
+            <button class="page page-3">3</button>
+            <p class="ellipsis">...</p>
+            <button class="page page-100">100</button>
+          </div>
           <p class="next-page">&gt;</p>
-        </div> -->
+        </div>
       </section>
     </main>
   </body>
