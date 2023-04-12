@@ -70,6 +70,7 @@ const displayPokeCards = () => {
 
 /* FUNCTION TO FETCH POKEMONS */
 const fetchPokemons = async () => {
+  loader.classList.remove('hidden');
   const list = fetchPokemonList(currentPage);
   try {
     pokemonList = await list;
@@ -77,7 +78,7 @@ const fetchPokemons = async () => {
   } catch (err) {
     console.log(err);
   } finally {
-    loader.setAttribute('id', 'hidden');
+    loader.classList.add('hidden');
     displayPokeCards();
   }
 };
@@ -126,10 +127,12 @@ const nextPageEl = document.querySelector('.next-page');
 const page1 = document.getElementsByClassName('page page-1 active-pg')[0];
 const page2 = document.getElementsByClassName('page page-2')[0];
 const page3 = document.getElementsByClassName('page page-3')[0];
-const page98 = document.getElementsByClassName('page page98')[0];
-const page99 = document.getElementsByClassName('page page99')[0];
-const page100 = document.getElementsByClassName('page page100')[0];
-
+const page98 = document.getElementsByClassName('page page-98')[0];
+const page99 = document.getElementsByClassName('page page-99')[0];
+const page100 = document.getElementsByClassName('page page-100')[0];
+const pageTwos = document.querySelector('.page-1-2');
+const page9899 = document.querySelector('.page-98-99');
+const middlePageDiv = document.querySelector('.middle-page');
 const pages = {
   1: page1,
   2: page2,
@@ -143,38 +146,79 @@ const removePrevActive = () => {
   document.getElementsByClassName('active-pg')[0].classList.remove('active-pg');
 };
 
+const jumpToPage = (pageNumber) => {
+  removePrevActive();
+  currentPage = pageNumber;
+  fetchPokemons();
+  const activePage = document.getElementsByClassName(
+    `page page-${pageNumber}`
+  )[0];
+  activePage.classList.add('active-pg');
+};
+
+// Function to show the right UI
+const checkPage = () => {
+  if (currentPage >= 1 && currentPage < 4) {
+    pageTwos.classList.remove('hidden');
+    middlePageDiv.innerHTML = '';
+    pages[currentPage].classList.add('active-pg');
+  } else if (currentPage > 3 && currentPage < 98) {
+    middlePageDiv.innerHTML = '';
+    pageTwos.classList.add('hidden');
+    page9899.classList.add('hidden');
+    middlePageDiv.innerHTML = `<button class="page page-${currentPage} active-pg">${currentPage}</button>
+      <p class="ellipsis">...</p>`;
+    const midPage = document.getElementsByClassName(
+      `page page-${currentPage}`
+    )[0];
+    midPage.addEventListener('click', () => jumpToPage(currentPage));
+  } else if (currentPage > 97 && currentPage < 100) {
+    middlePageDiv.innerHTML = '';
+    pageTwos.classList.add('hidden');
+    pages[currentPage].classList.add('active-pg');
+    page9899.classList.remove('hidden');
+  }
+};
+
 const goNextPage = () => {
-  if (currentPage <= 100) {
+  if (currentPage < 100) {
     currentPage += 1;
     removePrevActive();
-    if (
-      (currentPage > 1 && currentPage <= 3) ||
-      (currentPage >= 98 && currentPage <= 100)
-    ) {
-      pages[currentPage].classList.add('active-pg');
-    }
     fetchPokemons();
+    checkPage();
   }
 };
 
 const goPrevPage = () => {
   if (currentPage > 1) {
     currentPage -= 1;
+    removePrevActive();
     fetchPokemons();
+    checkPage();
   }
 };
 
-const jumpToPage = (pageNumber, pageEl) => {
-  removePrevActive();
-  currentPage = pageNumber;
-  fetchPokemons();
-  pageEl.classList.add('active-pg');
+const showFirstPages = () => {
+  pageTwos.classList.remove('hidden');
+  page9899.classList.add('hidden');
+  middlePageDiv.innerHTML = '';
+  jumpToPage(1);
 };
 
-// Page 1-3
-page1.addEventListener('click', () => jumpToPage(1, page1));
-page2.addEventListener('click', () => jumpToPage(2, page2));
-page3.addEventListener('click', () => jumpToPage(3, page3));
+const showLastPages = () => {
+  middlePageDiv.innerHTML = '';
+  pageTwos.classList.add('hidden');
+  page9899.classList.remove('hidden');
+  jumpToPage(100);
+};
+
+// Page 1-3, 98-100
+page1.addEventListener('click', showFirstPages);
+page2.addEventListener('click', () => jumpToPage(2));
+page3.addEventListener('click', () => jumpToPage(3));
+page98.addEventListener('click', () => jumpToPage(98));
+page99.addEventListener('click', () => jumpToPage(99));
+page100.addEventListener('click', showLastPages);
 
 // Next and Prev Pagination
 nextPageEl.addEventListener('click', goNextPage);

@@ -346,6 +346,7 @@ main {
 .card-name {
   font-weight: 500;
   font-size: 3.25rem;
+  white-space: nowrap;
 }
 
 .weight,
@@ -611,7 +612,7 @@ main {
   cursor: pointer;
 }
 
-#hidden {
+.hidden {
   display: none;
 }
 
@@ -627,4 +628,10 @@ main {
 
 .active-pg {
   background-color: #0057ff;
+}
+
+.middle-page {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
