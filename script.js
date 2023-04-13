@@ -4,12 +4,15 @@ import * as convert from './utils/weightHeightConverter.js';
 
 const loader = document.querySelector('.loader-wrapper');
 const pokemonCardsEl = document.querySelector('.pokemon-cards');
+const pokemonPagination = document.querySelector('.pokemon-pagination');
 let pokemonList;
 let currentPage = 1;
 
+const toggle = (el) => {
+  el.classList.toggle('hidden');
+};
+
 const displayPokeCards = () => {
-  // Delete the previous innerHTML of the pokemonCardsEl
-  pokemonCardsEl.innerHTML = '';
   // Iterate the list and start inserting the DOM
   pokemonList.forEach((item) => {
     const { id, name, types, sprites, height, weight } = item;
@@ -70,7 +73,10 @@ const displayPokeCards = () => {
 
 /* FUNCTION TO FETCH POKEMONS */
 const fetchPokemons = async () => {
-  loader.classList.remove('hidden');
+  toggle(pokemonPagination);
+  toggle(loader);
+  // Delete the previous innerHTML of the pokemonCardsEl
+  pokemonCardsEl.innerHTML = '';
   const list = fetchPokemonList(currentPage);
   try {
     pokemonList = await list;
@@ -78,8 +84,12 @@ const fetchPokemons = async () => {
   } catch (err) {
     console.log(err);
   } finally {
-    loader.classList.add('hidden');
+    // loader.classList.add('hidden');
+
     displayPokeCards();
+    toggle(loader);
+    toggle(pokemonPagination);
+    window.location.href = '#pokemons';
   }
 };
 
@@ -157,7 +167,7 @@ const jumpToPage = (pageNumber) => {
   window.location.href = '#pokemons';
 };
 
-// Function to show the right UI
+// Function to show the right page UI
 const checkPage = () => {
   if (currentPage >= 1 && currentPage < 4) {
     pageTwos.classList.remove('hidden');

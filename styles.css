@@ -637,12 +637,18 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 20rem 0;
 }
 
 .loader {
   width: 8rem;
+  display: inherit;
 }
 
+.loader-wrapper.hidden {
+  display: none;
+}
 .active-pg {
   background-color: #0057ff;
 }
