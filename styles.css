@@ -306,6 +306,23 @@ main {
   text-align: center;
   border-radius: 3rem;
   margin-top: 25rem;
+  animation: slide-down 1s;
+  transition: all 1s;
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .card-info {

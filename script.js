@@ -154,6 +154,7 @@ const jumpToPage = (pageNumber) => {
     `page page-${pageNumber}`
   )[0];
   activePage.classList.add('active-pg');
+  window.location.href = '#pokemons';
 };
 
 // Function to show the right UI
@@ -186,6 +187,7 @@ const goNextPage = () => {
     removePrevActive();
     fetchPokemons();
     checkPage();
+    window.location.href = '#pokemons';
   }
 };
 
@@ -195,6 +197,7 @@ const goPrevPage = () => {
     removePrevActive();
     fetchPokemons();
     checkPage();
+    window.location.href = '#pokemons';
   }
 };
 
