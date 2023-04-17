@@ -4,7 +4,7 @@ const fetchPokemon = async (name) => {
   try {
     const response = await fetch(pokemonURL);
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (err) {
     console.log(err);

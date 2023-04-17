@@ -124,6 +124,14 @@ header {
   justify-content: center;
   font-family: inherit;
   font-size: inherit;
+  background-color: transparent;
+}
+
+.secondary-btn {
+  border: 2px solid #fff;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 1.5rem 3rem;
 }
 
 .btn-hero {
@@ -139,10 +147,17 @@ main {
   padding: 8rem 15rem;
 }
 
+.more-cards-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 4rem auto;
+}
 /******* Pokemon types *******/
 .filters {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #2c3850;
   padding-bottom: 3rem;
 }
@@ -183,6 +198,7 @@ main {
 
 .type {
   transition: all 1s;
+  cursor: pointer;
 }
 
 .type img {
@@ -261,11 +277,10 @@ main {
   background-color: #0057ff;
 }
 
-.search-by-name-number {
+.form {
   width: 40rem;
-  padding: 2rem 3rem;
   display: flex;
-  align-self: self-end;
+  flex-direction: row;
   background-color: transparent;
   border: 3px solid #2403ff;
   color: inherit;
@@ -273,19 +288,44 @@ main {
   border-radius: 1rem;
   cursor: pointer;
   font-size: inherit;
+  align-self: self-end;
+  padding: 1px;
 }
 
-.search-by-name-number::placeholder {
+.form::placeholder {
   color: #4e5b75;
   font-family: inherit;
   font-size: 1.75rem;
 }
 
-.search-by-name-number:focus,
-.search-by-name-number:hover {
+.form input,
+.form button {
+  padding: 1.5rem;
+}
+
+.form input {
+  flex-grow: 2;
+  background-color: inherit;
+  border: 0;
+  font-family: inherit;
+  font-size: 1.6rem;
+}
+
+.form input:focus,
+.form input:hover {
   border-color: #4f38e6;
   outline: none;
   box-shadow: 1px 1px 2px #4f38e6;
+}
+
+.form button {
+  background-color: #2403ff;
+  font-family: inherit;
+  margin: -1px;
+}
+
+.form button:hover {
+  background-color: #2503ffcf;
 }
 
 /*** POKEMON CARDS ***/

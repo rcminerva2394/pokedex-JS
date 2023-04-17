@@ -100,7 +100,7 @@
                 <p class="type ghost" data-pokemon-type="ghost">
                   <img src="assets/pokemonTypes/ghost.svg" />Ghost
                 </p>
-                <p class="type grass" data-pokemon-type="gras">
+                <p class="type grass" data-pokemon-type="grass">
                   <img src="assets/pokemonTypes/grass.svg" />Grass
                 </p>
                 <p class="type ground" data-pokemon-type="ground">
@@ -135,34 +135,24 @@
             <p class="next-type">&gt;</p>
           </div>
         </div>
-        <input
-          class="search-by-name-number"
-          placeholder="Search a pokemon by name or number"
-        />
+        <form class="form">
+          <input
+            class="form input"
+            placeholder="Search a pokemon"
+            id="input-pokemon"
+          />
+          <button class="btn input" type="submit">Search</button>
+        </form>
       </section>
       <section class="pokemon-cards-wrapper">
         <div class="loader-wrapper hidden">
           <img src="assets/loader.svg" alt="" class="loader" />
         </div>
         <ul class="pokemon-cards"></ul>
+        <div class="more-cards-btn-wrapper"></div>
         <div class="pokemon-pagination">
           <p class="prev-page">&lt;</p>
-
-          <div class="pokemon-pages">
-            <button class="page page-1 active-pg">1</button>
-            <div class="two-pages-wrapper page-1-2">
-              <button class="page page-2">2</button>
-              <button class="page page-3">3</button>
-            </div>
-            <p class="ellipsis">...</p>
-            <div class="middle-page"></div>
-            <div class="two-pages-wrapper page-98-99 hidden">
-              <button class="page page-98">98</button>
-              <button class="page page-99">99</button>
-            </div>
-            <button class="page page-100">100</button>
-          </div>
-
+          <div class="pokemon-pages"></div>
           <p class="next-page">&gt;</p>
         </div>
       </section>

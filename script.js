@@ -1,11 +1,14 @@
 import fetchPokemonList from './api/fetchPokemonList.js';
-import capitalizeFirstLetter from './utils/capitalizeFirstLetter.js';
-import * as convert from './utils/weightHeightConverter.js';
+import fetchPokemonByType from './api/fetchPokemonByType.js';
+// import fetchPokemon from './api/fetchPokemon.js';
+import displayPokeCards from './UI/displayPokemonCards.js';
 import { paginate } from './utils/pagination.js';
 
 const loader = document.querySelector('.loader-wrapper');
 const pokemonCardsEl = document.querySelector('.pokemon-cards');
+const pokemonPaginationWrapper = document.querySelector('.pokemon-pagination');
 const pokemonPagination = document.querySelector('.pokemon-pages');
+const moreCardTypeBtn = document.querySelector('.more-cards-btn-wrapper');
 
 let pokemonList;
 let currentPage = 1;
@@ -14,95 +17,32 @@ const toggle = (el) => {
   el.classList.toggle('hidden');
 };
 
-const displayPokeCards = () => {
-  // Iterate the list and start inserting the DOM
-  pokemonList.forEach((item) => {
-    const { id, name, types, sprites, height, weight } = item;
-    const pokeName = capitalizeFirstLetter(name);
-    const pokeTypes =
-      types.length > 1
-        ? types.map((type) => type.type.name)
-        : [types[0].type.name];
-
-    // Create the <li> and its classes
-    const newPokemon = document.createElement('li');
-    newPokemon.classList.add('card', `card-${pokeTypes[0]}`);
-
-    // Pokemon types
-    let innerPokeTypes = '';
-    pokeTypes.forEach((type) => {
-      innerPokeTypes += `<p class="pokemon-type ${type}">
-                <img
-                  src="assets/pokemonTypes/${type}.svg"
-                  alt=""
-                  class="pokemon-type-icon"
-                />
-                ${capitalizeFirstLetter(type)}
-              </p>`;
-    });
-
-    // Create the innerhtml of the <li>
-    const newPokemonContent = `
-   <img
-              src=${sprites.other.home.front_default}
-              alt='The ${pokeName} photo'
-              class="pokemon-card-img"
-            />
-            <div class="card-info">
-              <p class="card-number">#${id}</p>
-              <p class="card-name">${pokeName}</p>
-               <div class="pokemon-types">${innerPokeTypes}</div>
-              <div class="weight-height">
-                <div class="weight-wrapper">
-                  <p class="weight">${convert.convertWeightToKg(weight)} kg</p>
-                  <p class="weight-text">Weight</p>
-                </div>
-                <div class="height-wrapper">
-                  <p class="height">${convert.convertHeightToM(height)} m</p>
-                  <p class="height-text">Height</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-card ${
-              pokeTypes[0]
-            }">More details...</button>
-  `;
-
-    newPokemon.innerHTML = newPokemonContent;
-    pokemonCardsEl.append(newPokemon);
-  });
-};
-
 /* FUNCTION TO FETCH POKEMONS */
-const fetchPokemons = async () => {
-  toggle(pokemonPagination);
+const fetchPokemons = async (fetchFunc, fetchParam, pokemonVar) => {
+  toggle(pokemonPaginationWrapper);
   toggle(loader);
   // Delete the previous innerHTML of the pokemonCardsEl
   pokemonCardsEl.innerHTML = '';
-  const list = fetchPokemonList(currentPage);
+  const list = fetchFunc(fetchParam);
   try {
-    pokemonList = await list;
-    console.log(pokemonList);
+    pokemonVar = await list;
   } catch (err) {
     console.log(err);
   } finally {
-    displayPokeCards();
+    displayPokeCards(pokemonVar, pokemonCardsEl);
     toggle(loader);
-    toggle(pokemonPagination);
+    toggle(pokemonPaginationWrapper);
     window.location.href = '#pokemons';
   }
-  console.log(currentPage);
 };
 
-/* PAGINATE */
-
+/** PAGINATE *****/
 const prevPageEl = document.querySelector('.prev-page');
 const nextPageEl = document.querySelector('.next-page');
 
 const updatePagination = () => {
   pokemonPagination.innerHTML = '';
   const pagination = paginate(currentPage, 100);
-  console.log(currentPage);
   pagination.forEach((page) => {
     let pageEl;
 
@@ -117,8 +57,7 @@ const updatePagination = () => {
       // Attach event listener
       pageEl.addEventListener('click', () => {
         currentPage = page;
-        console.log(currentPage);
-        fetchPokemons();
+        fetchPokemons(fetchPokemonList, currentPage, pokemonList);
         updatePagination();
         window.location.href = '#pokemons';
       });
@@ -129,32 +68,91 @@ const updatePagination = () => {
     pageEl.innerText = page;
     pokemonPagination.append(pageEl);
   });
-  console.log(currentPage);
 };
+
 const updatePage = () => {
-  fetchPokemons();
+  fetchPokemons(fetchPokemonList, currentPage, pokemonList);
   updatePagination();
 };
-// Next and Prev Pagination
+
+// Next and Prev Pagination (Just regular cards)
 nextPageEl.addEventListener('click', () => {
-  currentPage += 1;
+  if (currentPage <= 99) currentPage += 1;
   updatePage();
 });
 
 prevPageEl.addEventListener('click', () => {
-  currentPage -= 1;
+  if (currentPage > 1) currentPage -= 1;
   updatePage();
 });
 
-window.onload = () => {
-  updatePage();
+/*** POKEMON FILTER BY TYPE ***/
+let startIndex = 0;
+let endIndex = 9;
+
+const updateIndeces = () => {
+  startIndex += 9;
+  endIndex += 9;
 };
 
-/* POKEMON FILTER BY TYPE */
+let pokemonType;
 const btnLeft = document.querySelector('.prev-type');
 const btnRight = document.querySelector('.next-type');
 const pokemonTypesBtns = document.querySelector('.pokemon-types-btns');
 
+const fetchPokemonType = async (pokeType) => {
+  pokemonPaginationWrapper.style.display = 'none';
+  toggle(loader);
+  // Delete the previous innerHTML of the pokemonCardsEl
+  pokemonCardsEl.innerHTML = '';
+  moreCardTypeBtn.innerHTML = '';
+  const list = fetchPokemonByType(pokeType);
+  try {
+    pokemonType = await list;
+    console.log(pokemonType);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    displayPokeCards(pokemonType.slice(startIndex, endIndex), pokemonCardsEl);
+    toggle(loader);
+  }
+};
+
+// Attach event listener to the type btns
+const types = document.querySelectorAll('.type');
+types.forEach((type) => {
+  const pokeType = type.getAttribute('data-pokemon-type');
+  type.addEventListener('click', () => {
+    fetchPokemonType(pokeType);
+    // More Cards Btn
+    const moreCardsBtn = document.createElement('button');
+    moreCardsBtn.classList.add('btn', 'secondary-btn');
+    moreCardsBtn.addEventListener('click', () => {
+      updateIndeces();
+      if (startIndex < pokemonType.length && endIndex < pokemonType.length) {
+        toggle(loader);
+        displayPokeCards(
+          pokemonType.slice(startIndex, endIndex),
+          pokemonCardsEl
+        );
+        toggle(loader);
+      }
+    });
+    moreCardsBtn.innerText = 'More Pokemons...';
+    moreCardTypeBtn.append(moreCardsBtn);
+
+    // Go upward btn
+    const goUpwardBtn = document.createElement('button');
+    goUpwardBtn.classList.add('btn', 'secondary-btn');
+    goUpwardBtn.addEventListener('click', () => {
+      window.location.href = '#pokemons';
+    });
+    goUpwardBtn.innerHTML = '&#8593;';
+    moreCardTypeBtn.append(goUpwardBtn);
+  });
+});
+
+// Pokemon Filter By type dynamic styling
 let curr = 0;
 
 const goNextType = (current) => {
@@ -183,3 +181,10 @@ const prevType = () => {
 
 btnLeft.addEventListener('click', prevType);
 btnRight.addEventListener('click', nextType);
+
+/*** ON LOAD ***/
+window.onload = () => {
+  updatePage();
+};
+
+/** SEARCH A POKEMON **/
