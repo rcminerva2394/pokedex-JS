@@ -1,15 +1,23 @@
 const fetchPokemon = async (name) => {
   const pokemonURL = `https://pokeapi.co/api/v2/pokemon/${name}`;
 
+  let response;
+  let data;
+  let error;
+
   try {
-    const response = await fetch(pokemonURL);
-    const data = await response.json();
-    // console.log(data);
-    return data;
+    response = await fetch(pokemonURL);
+    data = await response.json();
   } catch (err) {
-    console.log(err);
-    return err;
+    data = null;
+    error = err.message;
   }
+
+  return {
+    response,
+    data,
+    error,
+  };
 };
 
 export default fetchPokemon;

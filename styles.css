@@ -36,6 +36,12 @@ button {
     hue-rotate(351deg) brightness(94%) contrast(105%);
 }
 
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: #fff;
+  letter-spacing: 1px;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -290,6 +296,7 @@ main {
   font-size: inherit;
   align-self: self-end;
   padding: 1px;
+  overflow: hidden;
 }
 
 .form::placeholder {
@@ -305,17 +312,18 @@ main {
 
 .form input {
   flex-grow: 2;
-  background-color: inherit;
+  background-color: transparent;
   border: 0;
   font-family: inherit;
   font-size: 1.6rem;
+  border-radius: 0;
 }
 
-.form input:focus,
-.form input:hover {
-  border-color: #4f38e6;
+.form:active,
+.form:hover {
+  border-color: #2503ffe3;
   outline: none;
-  box-shadow: 1px 1px 2px #4f38e6;
+  box-shadow: 1px 1px 5px #2503ffe3;
 }
 
 .form button {
@@ -325,7 +333,7 @@ main {
 }
 
 .form button:hover {
-  background-color: #2503ffcf;
+  background-color: #2503ffe3;
 }
 
 /*** POKEMON CARDS ***/
@@ -697,4 +705,42 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.poke-error {
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border: 1px solid rgba(20, 30, 89, 0.293);
+  background: linear-gradient(
+      rgba(143, 156, 229, 0.293) 20%,
+      rgba(228, 226, 238, 0.125),
+      rgba(228, 226, 238, 0)
+    )
+    50%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  grid-column: 2 / 3;
+  margin-top: 10rem;
+}
+
+.poke-error::before {
+  content: url(assets/pokemon-icon.svg);
+}
+
+.footer {
+  background-color: #060b28;
+  padding: 2rem 15rem;
+  color: #f4f4f4;
+}
+
+.footer-content-wrapper {
+  border-top: 1px solid #2c3850;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
 }

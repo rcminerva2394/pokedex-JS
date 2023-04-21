@@ -26,11 +26,16 @@
           alt="The Pokemon logo"
           class="red pokemon-logo"
         />
-        <img
-          src="assets/logo-github.svg"
-          alt="the Github logo"
-          class="red github-logo"
-        />
+        <a
+          href="https://github.com/rcminerva2394/pokedex-JS"
+          target="_blank"
+          class="github"
+        >
+          <img
+            src="assets/logo-github.svg"
+            alt="the Github logo"
+            class="red github-logo"
+        /></a>
       </header>
       <div class="hero-description">
         <div class="hero-description-details">
@@ -135,11 +140,12 @@
             <p class="next-type">&gt;</p>
           </div>
         </div>
-        <form class="form">
+        <form id="form" class="form">
           <input
             class="form input"
             placeholder="Search a pokemon"
             id="input-pokemon"
+            required
           />
           <button class="btn input" type="submit">Search</button>
         </form>
@@ -157,5 +163,44 @@
         </div>
       </section>
     </main>
+    <footer class="footer">
+      <div class="footer-content-wrapper">
+        <div class="footer-text">
+          <p>
+            Design credit to
+            <a
+              href="https://github.com/rcminerva2394/pokedex-JS"
+              target="_blank"
+              class="github"
+            >
+              Carlos Daniel
+            </a>
+          </p>
+          <p>API source is pokeapi.co</p>
+        </div>
+        <div class="associated-links">
+          <a
+            href="https://github.com/rcminerva2394/pokedex-JS"
+            target="_blank"
+            class="github"
+          >
+            <img
+              src="assets/logo-github.svg"
+              alt="the Github logo"
+              class="github-logo"
+          /></a>
+          <a
+            href="https://www.linkedin.com/in/rosemarie-christ-bahan-82a294226/"
+            target="_blank"
+            class="github"
+          >
+            <img
+              src="assets/logo-linkedin.svg"
+              alt="the Linkein logo"
+              class="linkedin-logo"
+          /></a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

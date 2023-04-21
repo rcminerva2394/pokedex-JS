@@ -7,8 +7,8 @@ const fetchPokemonByType = async (type) => {
     const response = await fetch(pokemonTypeURL);
     const data = await response.json();
     console.log(data);
-    const promises = data.pokemon.map(async (pokemon) =>
-      fetchPokemon(pokemon.pokemon.name)
+    const promises = data.pokemon.map(
+      async (pokemon) => (await fetchPokemon(pokemon.pokemon.name)).data
     );
     const pokemonType = Promise.all(promises);
     return pokemonType;

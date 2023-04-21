@@ -1,6 +1,6 @@
 import fetchPokemonList from './api/fetchPokemonList.js';
 import fetchPokemonByType from './api/fetchPokemonByType.js';
-// import fetchPokemon from './api/fetchPokemon.js';
+import fetchPokemon from './api/fetchPokemon.js';
 import displayPokeCards from './UI/displayPokemonCards.js';
 import { paginate } from './utils/pagination.js';
 
@@ -123,6 +123,8 @@ const types = document.querySelectorAll('.type');
 types.forEach((type) => {
   const pokeType = type.getAttribute('data-pokemon-type');
   type.addEventListener('click', () => {
+    // toggle(moreCardTypeBtn);
+    moreCardTypeBtn.classList.remove('hidden');
     fetchPokemonType(pokeType);
     // More Cards Btn
     const moreCardsBtn = document.createElement('button');
@@ -149,6 +151,7 @@ types.forEach((type) => {
     });
     goUpwardBtn.innerHTML = '&#8593;';
     moreCardTypeBtn.append(goUpwardBtn);
+    // toggle(moreCardTypeBtn);
   });
 });
 
@@ -188,3 +191,24 @@ window.onload = () => {
 };
 
 /** SEARCH A POKEMON **/
+const formEl = document.querySelector('#form');
+const formInput = document.querySelector('#input-pokemon');
+formEl.addEventListener('submit', async (e) => {
+  window.location.href = '#pokemons';
+  e.preventDefault();
+  pokemonPaginationWrapper.style.display = 'none';
+  pokemonCardsEl.innerHTML = '';
+  moreCardTypeBtn.classList.add('hidden');
+  toggle(loader);
+  console.log(formInput.value);
+  const getPokemon = await fetchPokemon(formInput.value.toLowerCase());
+  toggle(loader);
+  if (getPokemon.response.ok) {
+    displayPokeCards([getPokemon.data], pokemonCardsEl);
+  } else {
+    const errorEl = document.createElement('p');
+    errorEl.innerText = 'Oops! Sorry no pokemon found';
+    errorEl.classList.add('poke-error');
+    pokemonCardsEl.append(errorEl);
+  }
+});

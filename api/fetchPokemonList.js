@@ -8,8 +8,8 @@ const fetchPokemonList = async (pageNumber) => {
     const response = await fetch(pokemonListURL);
     const data = await response.json();
     console.log(data);
-    const promises = data.results.map(async (pokemon) =>
-      fetchPokemon(pokemon.name)
+    const promises = data.results.map(
+      async (pokemon) => (await fetchPokemon(pokemon.name)).data
     );
     const pokemonList = Promise.all(promises);
     return pokemonList;
