@@ -102,6 +102,8 @@ const pokemonTypesBtns = document.querySelector('.pokemon-types-btns');
 
 const fetchPokemonType = async (pokeType) => {
   pokemonPaginationWrapper.style.display = 'none';
+  moreCardTypeBtn.classList.add('hidden');
+
   toggle(loader);
   // Delete the previous innerHTML of the pokemonCardsEl
   pokemonCardsEl.innerHTML = '';
@@ -115,6 +117,7 @@ const fetchPokemonType = async (pokeType) => {
   } finally {
     displayPokeCards(pokemonType.slice(startIndex, endIndex), pokemonCardsEl);
     toggle(loader);
+    moreCardTypeBtn.classList.remove('hidden');
   }
 };
 
@@ -123,9 +126,8 @@ const types = document.querySelectorAll('.type');
 types.forEach((type) => {
   const pokeType = type.getAttribute('data-pokemon-type');
   type.addEventListener('click', () => {
-    // toggle(moreCardTypeBtn);
-    moreCardTypeBtn.classList.remove('hidden');
     fetchPokemonType(pokeType);
+
     // More Cards Btn
     const moreCardsBtn = document.createElement('button');
     moreCardsBtn.classList.add('btn', 'secondary-btn');
@@ -151,7 +153,6 @@ types.forEach((type) => {
     });
     goUpwardBtn.innerHTML = '&#8593;';
     moreCardTypeBtn.append(goUpwardBtn);
-    // toggle(moreCardTypeBtn);
   });
 });
 
