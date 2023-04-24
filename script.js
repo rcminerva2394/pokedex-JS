@@ -3,6 +3,7 @@ import fetchPokemonByType from './api/fetchPokemonByType.js';
 import fetchPokemon from './api/fetchPokemon.js';
 import displayPokeCards from './UI/displayPokemonCards.js';
 import { paginate } from './utils/pagination.js';
+import toggleEl from './UI/toggleEl.js';
 
 const loader = document.querySelector('.loader-wrapper');
 const pokemonCardsEl = document.querySelector('.pokemon-cards');
@@ -13,14 +14,10 @@ const moreCardTypeBtn = document.querySelector('.more-cards-btn-wrapper');
 let pokemonList;
 let currentPage = 1;
 
-const toggle = (el) => {
-  el.classList.toggle('hidden');
-};
-
 /* FUNCTION TO FETCH POKEMONS */
 const fetchPokemons = async (fetchFunc, fetchParam, pokemonVar) => {
-  toggle(pokemonPaginationWrapper);
-  toggle(loader);
+  toggleEl(pokemonPaginationWrapper);
+  toggleEl(loader);
   // Delete the previous innerHTML of the pokemonCardsEl
   pokemonCardsEl.innerHTML = '';
   const list = fetchFunc(fetchParam);
@@ -30,8 +27,8 @@ const fetchPokemons = async (fetchFunc, fetchParam, pokemonVar) => {
     console.log(err);
   } finally {
     displayPokeCards(pokemonVar, pokemonCardsEl);
-    toggle(loader);
-    toggle(pokemonPaginationWrapper);
+    toggleEl(loader);
+    toggleEl(pokemonPaginationWrapper);
     window.location.href = '#pokemons';
   }
 };
@@ -104,7 +101,7 @@ const fetchPokemonType = async (pokeType) => {
   pokemonPaginationWrapper.style.display = 'none';
   moreCardTypeBtn.classList.add('hidden');
 
-  toggle(loader);
+  toggleEl(loader);
   // Delete the previous innerHTML of the pokemonCardsEl
   pokemonCardsEl.innerHTML = '';
   moreCardTypeBtn.innerHTML = '';
@@ -116,7 +113,7 @@ const fetchPokemonType = async (pokeType) => {
     console.log(err);
   } finally {
     displayPokeCards(pokemonType.slice(startIndex, endIndex), pokemonCardsEl);
-    toggle(loader);
+    toggleEl(loader);
     moreCardTypeBtn.classList.remove('hidden');
   }
 };
@@ -134,12 +131,12 @@ types.forEach((type) => {
     moreCardsBtn.addEventListener('click', () => {
       updateIndeces();
       if (startIndex < pokemonType.length && endIndex < pokemonType.length) {
-        toggle(loader);
+        toggleEl(loader);
         displayPokeCards(
           pokemonType.slice(startIndex, endIndex),
           pokemonCardsEl
         );
-        toggle(loader);
+        toggleEl(loader);
       }
     });
     moreCardsBtn.innerText = 'More Pokemons...';
@@ -200,10 +197,10 @@ formEl.addEventListener('submit', async (e) => {
   pokemonPaginationWrapper.style.display = 'none';
   pokemonCardsEl.innerHTML = '';
   moreCardTypeBtn.classList.add('hidden');
-  toggle(loader);
-  console.log(formInput.value);
+  toggleEl(loader);
+  console.log(formInput.valuEle);
   const getPokemon = await fetchPokemon(formInput.value.toLowerCase());
-  toggle(loader);
+  toggleEl(loader);
   if (getPokemon.response.ok) {
     displayPokeCards([getPokemon.data], pokemonCardsEl);
   } else {
@@ -212,4 +209,12 @@ formEl.addEventListener('submit', async (e) => {
     errorEl.classList.add('poke-error');
     pokemonCardsEl.append(errorEl);
   }
+});
+
+// Toggling modal when backdrop is clicked
+const pokemonModalEl = document.querySelector('.pokemon-modal');
+const pokeBackdropEl = document.querySelector('.pokemon-stats-backdrop');
+pokeBackdropEl.addEventListener('click', () => {
+  toggleEl(pokemonModalEl);
+  document.body.style.overflow = 'scroll';
 });
