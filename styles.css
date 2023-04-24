@@ -420,6 +420,11 @@ main {
   font-weight: 500;
 }
 
+.weight-text,
+.height-text {
+  font-weight: 300;
+}
+
 /*** CARD-TYPE STYLES ***/
 
 .card-electric {
@@ -788,7 +793,7 @@ main {
 .second-line {
   width: 2px;
   height: 100%;
-  background-color: #2c3850;
+  background-color: rgba(52, 53, 56, 0.923);
 }
 
 .close-modal {

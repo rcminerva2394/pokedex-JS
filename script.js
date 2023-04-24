@@ -4,6 +4,7 @@ import fetchPokemon from './api/fetchPokemon.js';
 import displayPokeCards from './UI/displayPokemonCards.js';
 import { paginate } from './utils/pagination.js';
 import toggleEl from './UI/toggleEl.js';
+import showMoreDetails from './UI/moreDetailsModal.js';
 
 const loader = document.querySelector('.loader-wrapper');
 const pokemonCardsEl = document.querySelector('.pokemon-cards');
@@ -218,3 +219,11 @@ pokeBackdropEl.addEventListener('click', () => {
   toggleEl(pokemonModalEl);
   document.body.style.overflow = 'scroll';
 });
+
+// More details hero btn
+const heroBtn = document.querySelector('.btn-hero');
+const heroPoke = await fetchPokemon('pikachu');
+
+if (heroPoke.response.ok) {
+  showMoreDetails(heroPoke.data, heroBtn);
+}
