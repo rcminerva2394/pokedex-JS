@@ -162,9 +162,9 @@ const goNextType = (current) => {
 };
 
 const nextType = () => {
-  if (curr !== -144) {
-    curr += -18;
-  } else if (curr === -144) {
+  if (curr !== -154) {
+    curr += -14;
+  } else if (curr === -154) {
     curr = 0;
   }
 
@@ -173,9 +173,9 @@ const nextType = () => {
 
 const prevType = () => {
   if (curr === 0) {
-    curr = -144;
+    curr = -154;
   } else {
-    curr += 18;
+    curr += 14;
   }
 
   goNextType(curr);

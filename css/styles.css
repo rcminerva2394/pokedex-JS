@@ -28,7 +28,7 @@ button {
     rgba(233, 233, 184, 0.601),
     rgba(227, 227, 165, 0.799)
   );
-  height: 100vh;
+  height: 100%;
   padding: 4rem 8rem;
 }
 
@@ -43,9 +43,11 @@ a {
   color: #fff;
   letter-spacing: 1px;
 }
+
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .hero-description {
@@ -160,7 +162,8 @@ main {
   gap: 2rem;
   margin: 4rem auto;
 }
-/******* Pokemon types *******/
+
+/******* POKEMON TYPES *******/
 .filters {
   display: flex;
   justify-content: space-between;
@@ -177,7 +180,7 @@ main {
   display: flex;
   align-items: stretch;
   gap: 1rem;
-  max-width: 36rem;
+  max-width: 28rem;
   transition: all 1s;
 }
 
@@ -338,7 +341,6 @@ main {
 }
 
 /*** POKEMON CARDS ***/
-
 .pokemon-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -347,7 +349,7 @@ main {
 
 .card {
   list-style: none;
-  max-width: 40rem;
+  /* max-width: 40rem; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -412,7 +414,8 @@ main {
 .card-name {
   font-weight: 500;
   font-size: 3.25rem;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+  word-wrap: break-word;
 }
 
 .weight,
@@ -426,7 +429,6 @@ main {
 }
 
 /*** CARD-TYPE STYLES ***/
-
 .card-electric {
   border: 1px solid rgba(229, 196, 49, 0.2);
   background: radial-gradient(
@@ -645,7 +647,6 @@ main {
 }
 
 /*** PAGINATION ***/
-
 .pokemon-pagination {
   display: flex;
   justify-content: center;
@@ -751,7 +752,7 @@ main {
   font-weight: 400;
 }
 
-/** Modal of Pokemon Stats **/
+/** MORE DETAILS OR STATS MODAL **/
 .pokemon-modal {
   position: fixed;
   width: 100%;
