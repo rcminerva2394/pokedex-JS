@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-family: 'Rubik', sans-serif;
   line-height: 1.5;
 }
@@ -30,6 +30,10 @@ button {
   );
   height: 100%;
   padding: 4rem 8rem;
+}
+
+.hero-text {
+  font-size: 1.75rem;
 }
 
 .red {
