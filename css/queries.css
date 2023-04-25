@@ -11,6 +11,10 @@
     padding: 5rem 10rem;
     border: none;
   }
+
+  .pokemon-stats {
+    width: 80%;
+  }
 }
 
 @media (max-width: 75em) {
@@ -32,6 +36,10 @@
   .pokemon-cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
+  }
+
+  .pokemon-stats {
+    width: 100%;
   }
 }
 
@@ -64,9 +72,35 @@
   }
 
   .top-line,
-  .bottom-line {
+  .bottom-line,
+  .first-line,
+  .second-line {
     height: 2px;
     width: 100%;
+  }
+
+  .divider.modal {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .pokemon-modal {
+    padding: 10rem 0rem;
+  }
+
+  .pokemon-stats {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin-top: 30rem;
+  }
+
+  .pokemon-main-info {
+    justify-self: center;
+  }
+
+  .close-modal {
+    grid-row: 1 / -1;
+    margin-top: -12rem;
   }
 }
 

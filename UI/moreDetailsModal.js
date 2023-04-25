@@ -25,20 +25,18 @@ const showMoreDetails = (item, btn) => {
     pokemon.style.animation = 'none';
 
     toggleEl(pokemonModalEl);
+
     document.body.style.overflow = 'hidden';
+
     pokemonMainEl.append(pokemon);
 
     // THE STATS
     // The close btn
-    const closeBtnEl = document.createElement('button');
-    closeBtnEl.innerHTML = '&#10006';
-    closeBtnEl.classList.add('close-modal');
+    const closeBtnEl = document.querySelector('.close-modal');
     closeBtnEl.addEventListener('click', () => {
-      toggleEl(pokemonModalEl);
+      pokemonModalEl.classList.add('hidden');
       document.body.style.overflow = 'scroll';
     });
-
-    pokeStatsDetailsEl.append(closeBtnEl);
 
     // The actual stats
     console.log(stats);
