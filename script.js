@@ -124,6 +124,8 @@ const types = document.querySelectorAll('.type');
 types.forEach((type) => {
   const pokeType = type.getAttribute('data-pokemon-type');
   type.addEventListener('click', () => {
+    startIndex = 0;
+    endIndex = 9;
     fetchPokemonType(pokeType);
 
     // More Cards Btn
